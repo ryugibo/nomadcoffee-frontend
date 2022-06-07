@@ -1,11 +1,10 @@
-import { darkModeVar, isLoggedInVar, logUserIn } from "../apollo";
+import { logUserIn } from "../apollo";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import { Link, useLocation } from "react-router-dom";
 import routes from "../routes";
-
-const Container = styled.div``;
+import Container from "../components/Container";
 
 const Title = styled.h1`
   color: ${(props) => props.theme.fontColor};

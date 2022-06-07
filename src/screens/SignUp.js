@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
 import { Link, useNavigate } from "react-router-dom";
 import routes from "../routes";
-
-const Container = styled.div``;
+import Container from "../components/Container";
 
 const Title = styled.h1`
   color: ${(props) => props.theme.fontColor};
@@ -83,18 +82,10 @@ function SignUp() {
           type="password"
           placeholder="Password"
         />
+        <Input {...register("name")} type="text" placeholder="Name" />
+        <Input {...register("location")} type="text" placeholder="Location" />
         <Input
-          {...register("name", { required: true })}
-          type="text"
-          placeholder="Name"
-        />
-        <Input
-          {...register("location", { required: true })}
-          type="text"
-          placeholder="Location"
-        />
-        <Input
-          {...register("githubUsername", { required: true })}
+          {...register("githubUsername")}
           type="text"
           placeholder="GithubUsername"
         />
