@@ -6,6 +6,8 @@ import routes from "./routes";
 import Home from "./screens/Home";
 import Login from "./screens/Login";
 import NotFound from "./screens/NotFound";
+import ShopAdd from "./screens/ShopAdd";
+import ShopEdit from "./screens/ShopEdit";
 import SignUp from "./screens/SignUp";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 
@@ -23,6 +25,8 @@ function App() {
               element={isLoggedIn ? <Home /> : <Login />}
             />
             <Route path={routes.signUp} element={<SignUp />} />
+            <Route path={routes.add} element={<ShopAdd />} />
+            <Route path={routes.shopEdit} element={<ShopEdit />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
