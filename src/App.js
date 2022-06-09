@@ -24,9 +24,11 @@ function App() {
               path={routes.home}
               element={isLoggedIn ? <Home /> : <Login />}
             />
-            <Route path={routes.signUp} element={<SignUp />} />
-            <Route path={routes.add} element={<ShopAdd />} />
-            <Route path={routes.shopEdit} element={<ShopEdit />} />
+            {!isLoggedIn && <Route path={routes.signUp} element={<SignUp />} />}
+            {isLoggedIn && <Route path={routes.add} element={<ShopAdd />} />}
+            {isLoggedIn && (
+              <Route path={routes.shopEdit} element={<ShopEdit />} />
+            )}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
