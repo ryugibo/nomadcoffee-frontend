@@ -10,7 +10,6 @@ const Title = styled.h1`
 `;
 
 const Input = styled.input``;
-
 const Button = styled.input``;
 
 const CREATE_ACCOUNT_MUTATION = gql`
@@ -42,9 +41,10 @@ function SignUp() {
   const onCompleted = (data) => {
     const { username, password } = getValues();
     const {
-      createAccount: { ok },
+      createAccount: { ok, error },
     } = data;
     if (!ok) {
+      console.log(error);
       return;
     }
 
@@ -88,7 +88,7 @@ function SignUp() {
           type="text"
           placeholder="GithubUsername"
         />
-        <Button type="submit" value="Log in" />
+        <Button type="submit" value="Sign up" />
       </form>
       <Link to={routes.home}>Log in</Link>
     </Container>
