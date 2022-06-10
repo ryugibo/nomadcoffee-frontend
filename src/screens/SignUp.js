@@ -41,9 +41,10 @@ function SignUp() {
   const onCompleted = (data) => {
     const { username, password } = getValues();
     const {
-      createAccount: { ok },
+      createAccount: { ok, error },
     } = data;
     if (!ok) {
+      console.log(error);
       return;
     }
 
