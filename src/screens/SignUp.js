@@ -1,4 +1,3 @@
-import { darkModeVar, isLoggedInVar, logUserIn } from "../apollo";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { gql, useMutation } from "@apollo/client";
@@ -43,7 +42,7 @@ function SignUp() {
   const onCompleted = (data) => {
     const { username, password } = getValues();
     const {
-      createAccount: { ok, error, token },
+      createAccount: { ok },
     } = data;
     if (!ok) {
       return;
@@ -54,7 +53,7 @@ function SignUp() {
     });
   };
 
-  const [createAccount, { loading }] = useMutation(CREATE_ACCOUNT_MUTATION, {
+  const [createAccount] = useMutation(CREATE_ACCOUNT_MUTATION, {
     onCompleted,
   });
 
