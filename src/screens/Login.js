@@ -36,7 +36,7 @@ function Login() {
 
   const onCompleted = (data) => {
     const {
-      login: { ok, error, token },
+      login: { ok, token },
     } = data;
     console.log(data);
     if (!ok) {
@@ -48,7 +48,7 @@ function Login() {
     }
   };
 
-  const [login, { loading }] = useMutation(LOGIN_MUTATION, { onCompleted });
+  const [login] = useMutation(LOGIN_MUTATION, { onCompleted });
 
   const onSubmitValid = (data) => {
     login({ variables: { ...data } });
